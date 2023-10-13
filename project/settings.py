@@ -32,6 +32,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    #my apps
+    'user.apps.UserConfig',
+    'ticket.apps.TicketConfig',
+    'portfolio.apps.PortfolioConfig',
+    'service.apps.ServiceConfig',
+
+    #django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,3 +138,8 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+###############################################
+
+AUTH_USER_MODEL = "user.MyUser"

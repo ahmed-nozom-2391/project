@@ -13,7 +13,7 @@
 			<div class="nv-content-wrap entry-content">
 <div class="wp-block-cover alignfull" style="min-height:300px"><span aria-hidden="true" class="wp-block-cover__background has-nv-site-bg-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
 <div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container">
-<h1 class="has-text-align-left has-neve-text-color-color has-text-color wp-block-heading">Service</h1>
+<h1 class="has-text-align-left has-neve-text-color-color has-text-color wp-block-heading">Portfolio</h1>
 </div></div>
 </div></div>
 
@@ -35,17 +35,15 @@
 		<div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
 		<div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-7 wp-block-columns-is-layout-flex">		
 
-		{% for service in list %}
+		{% for porto in list %}
 			
 			<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
-				<figure class="wp-block-image size-large"><img decoding="async" src="{{service.image.url}}" alt="" class="wp-image-37"></figure>
-				<h3 class="has-text-align-center has-neve-text-color-color has-text-color wp-block-heading">{{service.service_name}}</h3>
-				<p class="has-text-align-center has-neve-text-color-color has-text-color">
-					{{ service.details|truncatewords:81 }}...<a href="{% url 'service:service' service.slug %}">Learn More</a>
-				</p>
+				<figure class="wp-block-image size-large"><img decoding="async" src="{{porto.image.url}}" alt="" class="wp-image-37"></figure>
+				<h3 class="has-text-align-center has-neve-text-color-color has-text-color wp-block-heading">{{porto.project_name}}</h3>
+				<p class="has-text-align-center has-neve-text-color-color has-text-color">{{porto.details}}</p>
 				<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
 					<div class="wp-block-button is-style-primary">
-						<a class="wp-block-button__link">Add</a>
+						<a class="wp-block-button__link">PROJECT DETAILS</a>
 					</div>
 				</div>
 				<div style="height:40px" aria-hidden="true" class="wp-block-spacer">
