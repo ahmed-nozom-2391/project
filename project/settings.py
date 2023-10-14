@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-kntnyr48mb6aevvq%lkcif@ejdl-n1vn0m294h4!&8i0*k)nv9
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,11 @@ INSTALLED_APPS = [
     'ticket.apps.TicketConfig',
     'portfolio.apps.PortfolioConfig',
     'service.apps.ServiceConfig',
+    'contactus.apps.ContactusConfig',
+    'myaccount.apps.MyaccountConfig',
+
+    #...
+    'corsheaders',
 
     #django apps
     'django.contrib.admin',
@@ -50,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -143,3 +149,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ###############################################
 
 AUTH_USER_MODEL = "user.MyUser"
+
+CORS_ORIGIN_ALLOW_ALL = False
