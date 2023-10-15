@@ -41,7 +41,7 @@
 				<figure class="wp-block-image size-large"><img decoding="async" src="{{service.image.url}}" alt="" class="wp-image-37"></figure>
 				<h3 class="has-text-align-center has-neve-text-color-color has-text-color wp-block-heading">{{service.service_name}}</h3>
 				<p class="has-text-align-center has-neve-text-color-color has-text-color">
-					{{ service.details|truncatewords:81 }}...<a href="{% url 'service:service' service.slug %}">Learn More</a>
+					{{ service.details}}
 				</p>
 				<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
 					<div class="wp-block-button is-style-primary">

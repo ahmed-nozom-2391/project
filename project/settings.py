@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'myaccount.apps.MyaccountConfig',
 
     #...
-    'jazzmin',
+    # 'jazzmin',
     'corsheaders',
     'rest_framework',
 
