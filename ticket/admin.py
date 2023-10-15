@@ -7,7 +7,7 @@ class TicketAdmin(admin.ModelAdmin):
     model = Ticket
     list_display = ['id',  'company_name', 'created_at', 'created_by']
     list_display_links = ['id', 'company_name', 'created_by']
-    readonly_fields=('created_by', 'created_at')
+    readonly_fields=('created_by', 'company_name', 'work_field', 'problem_type', 'message', 'suitable_time', 'created_at')
     search_fields = ('id', 'created_by', 'company_name', 'work_field', 'problem_type')
     list_filter = ('created_by', 'created_at', 'suitable_time')
     

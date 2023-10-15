@@ -8,52 +8,58 @@
 
 	<main id="content" class="neve-main">
 
-	<div class="login-box">
+	<div style="margin-right: 20px;">
 		<form method="POST" >
 
 			{% csrf_token %}
 
-			<div class="title">Ticket</div>
-			<div class="subtitle">write your ticket!</div>
+			<div style="padding-left:20px;"><h2>Ticket</h2></div>
+			<div style="padding-left:20px;"><h3>write your ticket!</h3></div>
 
 
-			<div class="user-box">
-				<input id="company_name" name="company_name" class="input" type="text" placeholder=" " required/>
+			<div style="padding-left:20px;">
+				<br>
 				<label for="company_name" >company name</label>
+				<input style="padding-right:20px;" id="company_name" name="company_name" class="input" type="text" placeholder=" " required/>
 				{% for err in form.company_name.errors %}
 					<p style="color:red;">{{err}}</p>
 				{% endfor %}
 			</div>
 
-			<div class="user-box">
-				<input id="work_field" name="work_field" class="input" type="text" placeholder=" " required/>
+			<div style="padding-left:20px;">
+				<br>
 				<label for="work_field" >work field</label>
+				<input id="work_field" name="work_field" class="input" type="text" placeholder=" " required/>
 				{% for err in form.work_field.errors %}
 					<p style="color:red;">{{err}}</p>
 				{% endfor %}
 			</div>
 
-			<div class="user-box">
-				<input id="problem_type" name="problem_type" class="input" type="text" placeholder=" " required/>
+			<div style="padding-left:20px;">
+				<br>
 				<label for="problem_type" >problem type</label>
+				<input id="problem_type" name="problem_type" class="input" type="text" placeholder=" " required/>
 				{% for err in form.problem_type.errors %}
 					<p style="color:red;">{{err}}</p>
 				{% endfor %}
 			</div>
 
-			<div class="user-box">
-				<input id="suitable_time" name="suitable_time" class="input" type="time" placeholder=" " />
+			<div style="padding-left:20px;">
+				<br>
 				<label for="suitable_time" >suitable time</label>
+				<input id="suitable_time" name="suitable_time" class="input" type="datetime-local" placeholder=" " />
 				{% for err in form.suitable_time.errors %}
 					<p style="color:red;">{{err}}</p>
 				{% endfor %}
 			</div>
 
-			<div class="user-box">
+			<div style="padding-left:20px;">
+				<br>
 				<label>message</label>
 				<br>
-				<br>
-				<textarea id="message" name="message" rows="4" cols="30"></textarea>
+				<textarea id="message" name="message" rows="4" cols="30" style="width:100%;">
+
+				</textarea>
 				
 				{% for err in form.message.errors %}
 					<p style="color:red;">{{err}}</p>

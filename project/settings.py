@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'myaccount.apps.MyaccountConfig',
 
     #...
+    'jazzmin',
     'corsheaders',
+    'rest_framework',
 
     #django apps
     'django.contrib.admin',
@@ -78,6 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'myaccount.views.myservice_cart_context',
             ],
         },
     },
@@ -151,3 +154,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = "user.MyUser"
 
 CORS_ORIGIN_ALLOW_ALL = False
+
+JAZZMIN_SETTINGS = {
+    
+}
+

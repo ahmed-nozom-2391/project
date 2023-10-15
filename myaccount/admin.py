@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AccountMessage
+from .models import AccountMessage, MyService
 
 
 
@@ -14,4 +14,18 @@ class AccountMessageAdmin(admin.ModelAdmin):
         return False
     
 
+
+
+class MyServiceAdmin(admin.ModelAdmin):
+    model = MyService
+    list_display = ['id',  'user', 'service', 'created_at']
+    list_display_links = ['id', 'user', 'service']
+    readonly_fields=('created_at',)
+    search_fields = ('id', 'user', 'service', 'created_at')
+    list_filter = ('user', 'service')
+
+
+
+
 admin.site.register(AccountMessage, AccountMessageAdmin)
+admin.site.register(MyService, MyServiceAdmin)

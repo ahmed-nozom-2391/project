@@ -57,3 +57,6 @@ def logout_view(request):
 @login_required
 def success_send(request):
     return render(request, "success.html")
+
+
+

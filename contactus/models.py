@@ -15,3 +15,9 @@ class ContactUs(models.Model):
     def __str__(self):
         return self.email
     
+    class Meta:
+        verbose_name = "Contact Us"
+        verbose_name_plural = "Contact Us"
+    
+
+    

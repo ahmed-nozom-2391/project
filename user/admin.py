@@ -11,9 +11,8 @@ admin.site.site_header = 'IPAM'
 
 class CustomUserAdmin(UserAdmin):
     model = MyUser
-    list_display = [ 'phone', 'email', 'is_staff', 'is_superuser']
+    list_display = [ 'phone', 'email', 'company_name', 'work_field']
     list_display_links = ['phone']
-    list_editable = ('is_staff', )
     
     search_fields   = ('email', 'phone',)
     list_filter     = ('is_superuser', 'date_joined', 'is_staff')

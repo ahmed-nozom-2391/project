@@ -40,11 +40,11 @@
 
 
 
-<p class="has-white-color has-text-color" style="padding-left: 40px;">name:  {{request.user.get_name}}</p>
-<p class="has-white-color has-text-color"style="padding-left: 40px;">company name:  {{request.user.company_name}}</p>
-<p class="has-white-color has-text-color"style="padding-left: 40px;">work field:  {{request.user.work_field}}</p>
-<p class="has-white-color has-text-color"style="padding-left: 40px;">mobile no:  {{request.user.phone}}</p>
-<p class="has-white-color has-text-color"style="padding-left: 40px;">email:  {{request.user.email}}</p>
+<p class="has-white-color has-text-color" style="padding-left: 40px;"><b>Name: </b> {{request.user.get_name}}</p>
+<p class="has-white-color has-text-color"style="padding-left: 40px;"><b>Company name:</b>  {{request.user.company_name}}</p>
+<p class="has-white-color has-text-color"style="padding-left: 40px;"><b>Work field:</b>  {{request.user.work_field}}</p>
+<p class="has-white-color has-text-color"style="padding-left: 40px;"><b>Mobile no:</b>  {{request.user.phone}}</p>
+<p class="has-white-color has-text-color"style="padding-left: 40px;"><b>E-mail:</b>  {{request.user.email}}</p>
 
 
 </div>
@@ -53,9 +53,9 @@
 
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
-<div id="wp-block-themeisle-blocks-form-5a53b94c" class="wp-block-themeisle-blocks-form" data-option-name="bf9b28ff82ce323187abc5d0feb0d8f07ecd8436_5a53b94c">
+<div style="padding-left:20px; padding-right:20px;" id="wp-block-themeisle-blocks-form-5a53b94c" class="wp-block-themeisle-blocks-form" data-option-name="bf9b28ff82ce323187abc5d0feb0d8f07ecd8436_5a53b94c">
 	
-	<form method="POST" class="form form-short">
+	<form method="POST" class="form form-short" style="width:100%;">
 
 		{% csrf_token %}
 
@@ -65,7 +65,7 @@
 		<div class="input-container ic1">
 			<label>message</label>
 			<br>
-			<textarea id="message" name="message" rows="4" cols="26"></textarea>
+			<textarea id="message" name="message" rows="4" cols="26" style="width:100%;"></textarea>
 			
 			{% for err in form.message.errors %}
 				<p style="color:red;">{{err}}</p>
@@ -110,28 +110,22 @@
 
 
 
-
-<div class="wp-block-cover alignfull" style="min-height:100px"><span aria-hidden="true" class="wp-block-cover__background has-nv-light-bg-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
-	<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
-	
-	<div class="wp-block-columns is-layout-flex wp-container-9 wp-block-columns-is-layout-flex">
-
-	<div class="wp-block-column ticss is-layout-flow wp-block-column-is-layout-flow">
-	<div class="wp-block-group has-nv-site-bg-background-color has-background is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container">
-	<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
-	
-	<div class="wp-block-image icon-style is-style-default">
-	<figure class="aligncenter size-large"><img decoding="async" width="63" height="63" src="{% static 'wp-content/uploads/2021/06/phone-sm.png' %}" alt="" class="wp-image-304"></figure></div>
-	
-	<h3 class="has-text-align-center has-neve-text-color-color has-text-color wp-block-heading">service name</h3>
-	
-	<p class="has-text-align-center has-neve-text-color-color has-text-color" style="font-size:15px">more info...</p>
-	
-	<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
-	</div></div>
+{% for service in services %}
+	<div class="wp-block-cover alignfull" style="min-height:100px"><span aria-hidden="true" class="wp-block-cover__background has-nv-light-bg-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
+		<div style="height:10px" aria-hidden="true" class="wp-block-spacer"></div>
+		<div class="wp-block-columns is-layout-flex wp-container-9 wp-block-columns-is-layout-flex">
+		<div class="wp-block-column ticss is-layout-flow wp-block-column-is-layout-flow">
+		<div class="wp-block-group has-nv-site-bg-background-color has-background is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container">
+		<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
+		<div class="wp-block-image icon-style is-style-default">
+		<figure class="aligncenter size-large"><img decoding="async" width="63" height="63" src="{{service.service.image.url}}" alt="" class="wp-image-304"></figure></div>
+		<h3 class="has-text-align-center has-neve-text-color-color has-text-color wp-block-heading">{{service.service.service_name}}</h3>
+		<p class="has-text-align-center has-neve-text-color-color has-text-color" style="font-size:15px">{{service.created_at}}</p>
+		<div style="height:24px" aria-hidden="true" class="wp-block-spacer"></div>
+		</div></div>
+		</div>
 	</div>
-
-</div>
+{% endfor %}
 	
 
 

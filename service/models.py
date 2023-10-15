@@ -50,9 +50,9 @@ class OverwriteStorage(FileSystemStorage):
 class Service(models.Model):
     created_by   = models.ForeignKey(MyUser, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='created by')
     created_at   = models.DateTimeField(default=timezone.now, verbose_name='created at')
-    service_name = models.CharField(max_length=255, blank=False, null=False, verbose_name='project name')
+    service_name = models.CharField(max_length=255, blank=False, null=False, verbose_name='service name')
     image        = models.ImageField(upload_to=image_upload, default = 'service/service.jpg', storage = OverwriteStorage() )
-    details      = models.TextField(blank=True, null=True) 
+    details      = models.CharField(max_length=82, blank=False, null=False) 
     slug         = models.SlugField(max_length = 255, null = False, blank = False, unique=True)
     
 

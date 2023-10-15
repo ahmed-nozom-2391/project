@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from .forms import AccountMessageCreateForm
-
+from .models import MyService
 
 
 
@@ -22,8 +23,26 @@ class AccountMessageCreateView(LoginRequiredMixin, CreateView):
         message.save()
         return super().form_valid(form)
     
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        services = MyService.objects.filter(user = user)
+        context['services'] = services
+        return context
+    
 
-0
+    
+
+
+def myservice_cart_context(request):
+    user = request.user
+    cart_services = 0
+    if user.is_authenticated:
+        services = MyService.objects.filter(user = user)
+        cart_services = services.count()
+
+    return {'cart_services': cart_services}
+    
 
     
 

@@ -12,6 +12,7 @@
 <meta name='robots' content='max-image-preview:large'>
 <link rel="alternate" type="application/rss+xml" title="IPAM Develop &raquo; Feed" href="feed.html">
 <link rel="alternate" type="application/rss+xml" title="IPAM Develop &raquo; Comments Feed" href="comments/feed.html">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'form.css' %}"> 
 <link rel="stylesheet" href="{% static 'ticket.css' %}"> 
 
@@ -90,36 +91,77 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	<div class="header--row-inner header-main-inner">
 		<div class="container">
 			<div class="row row--wrapper" data-section="hfg_header_layout_main">
-				<div class="hfg-slot left"><div class="builder-item desktop-left"><div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">
-	
-<div class="site-logo">
-	<a class="brand" href="{% url "user:index" %}" title="← IPAM Develop" aria-label="IPAM Develop" rel="home"><div class="title-with-logo"><img width="200" height="200" src="{% static 'wp-content/uploads/2020/12/web-agency-logo-3.png' %}" class="neve-site-logo skip-lazy" alt="" decoding="async" data-variant="logo"><div class="nv-title-tagline-wrap"><p class="site-title">IPAM Develop</p></div></div></a></div>
-	</div>
 
-</div></div><div class="hfg-slot right"><div class="builder-item has-nav"><div class="item--inner builder-item--primary-menu has_menu" data-section="header_menu_primary" data-item-id="primary-menu">
-	<div class="nv-nav-wrap">
-	<div role="navigation" class="nav-menu-primary style-border-bottom m-style" aria-label="Primary Menu">
+				<div class="hfg-slot left">
+					<div class="builder-item desktop-left">
+						<div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">
+							<div class="site-logo">
+								<a class="brand" href="{% url "user:index" %}" title="← IPAM Develop" aria-label="IPAM Develop" rel="home">
+									<div class="title-with-logo">
+										<img width="200" height="200" src="{% static 'wp-content/uploads/2020/12/web-agency-logo-3.png' %}" class="neve-site-logo skip-lazy" alt="" decoding="async" data-variant="logo">
+										<div class="nv-title-tagline-wrap">
+											<p class="site-title">IPAM Develop</p>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
-		<ul id="nv-primary-navigation-main" class="primary-menu-ul nav-ul menu-desktop"><li id="menu-item-308" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-308 nv-active"><div class="wrap"><a href="{% url "user:index" %}" aria-current="page">Home</a></div></li>
-<li id="menu-item-400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400"><div class="wrap"><a href="{% url 'service:all_service' %}">Service</a></div></li>
-<li id="menu-item-320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><div class="wrap"><a href="{% url 'portfolio:portfolio'%}">Portfolio</a></div></li>
-{% if request.user.is_authenticated %}
-	<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><div class="wrap"><a href="{% url 'ticket:ticket'%}">Ticket</a></div></li>
-{% endif %}
+				{% if request.user.is_authenticated %}
 
-{% if request.user.is_authenticated %}
-	<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'myaccount:myaccount'%}">My Account</a></div></li>
-{% else %}
-	<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'user:login'%}">Login</a></div></li>
-{% endif %}
+				<div class="hfg-slot right">
+					<div class="builder-item desktop-left">
+						<div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">
+							<div class="site-logo">
+								<a class="brand" href="{% url 'myaccount:myaccount'%}">
+									<div class="title-with-logo">
+										<div class="nv-title-tagline-wrap">
+											<i class="fa fa-shopping-cart right" style="font-size:24px;color:black"></i>
+											<span class="badge" id="my_cart1">{{cart_services}}</span>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				{% endif %}
+				
 
-<li id="menu-item-323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><div class="wrap"><a href="{% url 'contactus:contactus'%}">Contact Us</a></div></li>
-</ul>	</div>
-</div>
+				<div class="hfg-slot right">
+					<div class="builder-item has-nav">
+						<div class="item--inner builder-item--primary-menu has_menu" data-section="header_menu_primary" data-item-id="primary-menu">
+							<div class="nv-nav-wrap">
+								<div role="navigation" class="nav-menu-primary style-border-bottom m-style" aria-label="Primary Menu">
+									<ul id="nv-primary-navigation-main" class="primary-menu-ul nav-ul menu-desktop"><li id="menu-item-308" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-308 nv-active"><div class="wrap"><a href="{% url "user:index" %}" aria-current="page">Home</a></div></li>
+										<li id="menu-item-400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400">
+											<div class="wrap"><a href="{% url 'service:all_service' %}">Service</a></div>
+										</li>
+										<li id="menu-item-320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320">
+											<div class="wrap"><a href="{% url 'portfolio:portfolio'%}">Portfolio</a></div>
+										</li>
+										{% if request.user.is_authenticated %}
+											<li id="menu-item-402" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><div class="wrap"><a href="{% url 'ticket:ticket'%}">Ticket</a></div></li>
+										{% endif %}
 
-	</div>
+										{% if request.user.is_authenticated %}
+											<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'myaccount:myaccount'%}">My Account</a></div></li>
+										{% else %}
+											<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'user:login'%}">Login</a></div></li>
+										{% endif %}
 
-</div></div>							</div>
+										<li id="menu-item-323" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><div class="wrap"><a href="{% url 'contactus:contactus'%}">Contact Us</a></div></li>
+										
+									</ul>	
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </nav>
@@ -129,31 +171,58 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 	<div class="header--row-inner header-main-inner">
 		<div class="container">
+
 			<div class="row row--wrapper" data-section="hfg_header_layout_main">
-				<div class="hfg-slot left"><div class="builder-item tablet-left mobile-left"><div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">
-	
-<div class="site-logo">
-	<a class="brand" href="{% url "user:index" %}" title="← IPAM Develop" aria-label="IPAM Develop" rel="home"><div class="title-with-logo"><img width="200" height="200" src="{% static 'wp-content/uploads/2020/12/web-agency-logo-3.png' %}" class="neve-site-logo skip-lazy" alt="" decoding="async" data-variant="logo"><div class="nv-title-tagline-wrap"><p class="site-title">IPAM Develop</p></div></div></a></div>
-	</div>
 
-</div></div><div class="hfg-slot right"><div class="builder-item tablet-left mobile-left"><div class="item--inner builder-item--nav-icon" data-section="header_menu_icon" data-item-id="nav-icon">
-	<div class="menu-mobile-toggle item-button navbar-toggle-wrapper">
-	<button type="button" class=" navbar-toggle" value="Navigation Menu" aria-label="Navigation Menu " aria-expanded="false" onclick="if('undefined' !== typeof toggleAriaClick ) { toggleAriaClick() }">
-					<span class="bars">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</span>
-					<span class="screen-reader-text">Navigation Menu</span>
-	</button>
-</div> <!--.navbar-toggle-wrapper-->
+				<div class="hfg-slot left">
+					<div class="builder-item tablet-left mobile-left">
+						<div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">
+							<div class="site-logo">
+								<a class="brand" href="{% url "user:index" %}" title="← IPAM Develop" aria-label="IPAM Develop" rel="home">
+									<div class="title-with-logo">
+										<img width="200" height="200" src="{% static 'wp-content/uploads/2020/12/web-agency-logo-3.png' %}" class="neve-site-logo skip-lazy" alt="" decoding="async" data-variant="logo">
+										<div class="nv-title-tagline-wrap">
+											<p class="site-title">IPAM Develop</p>
+										</div>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+
+					{% if request.user.is_authenticated %}
+						<div class="builder-item tablet-left mobile-left">
+							<a href="{% url 'myaccount:myaccount'%}">
+								<i class="fa fa-shopping-cart right" style="font-size:24px;color:black"></i>
+								<span class="badge" id="my_cart2">{{cart_services}}</span>
+							</a>
+						</div>
+					{% endif %}
 
 
-	</div>
+				</div>
 
-</div></div>							</div>
+				<div class="hfg-slot right">
+					<div class="builder-item tablet-left mobile-left">
+						<div class="item--inner builder-item--nav-icon" data-section="header_menu_icon" data-item-id="nav-icon">
+							<div class="menu-mobile-toggle item-button navbar-toggle-wrapper">
+								<button type="button" class=" navbar-toggle" value="Navigation Menu" aria-label="Navigation Menu " aria-expanded="false" onclick="if('undefined' !== typeof toggleAriaClick ) { toggleAriaClick() }">
+									<span class="bars">
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</span>
+									<span class="screen-reader-text">Navigation Menu</span>
+								</button>
+							</div> <!--.navbar-toggle-wrapper-->
+						</div>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
+
 </nav>
 
 <div id="header-menu-sidebar" class="header-menu-sidebar tcb menu-sidebar-panel slide_left hfg-pe" data-row-id="sidebar">
@@ -171,30 +240,37 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		</div>
 					<div id="header-menu-sidebar-inner" class="header-menu-sidebar-inner tcb ">
 						<div class="builder-item has-nav"><div class="item--inner builder-item--primary-menu has_menu" data-section="header_menu_primary" data-item-id="primary-menu">
-	<div class="nv-nav-wrap">
-	<div role="navigation" class="nav-menu-primary style-border-bottom m-style" aria-label="Primary Menu">
+<div class="nv-nav-wrap">
+<div role="navigation" class="nav-menu-primary style-border-bottom m-style" aria-label="Primary Menu">
+	<ul id="nv-primary-navigation-sidebar" class="primary-menu-ul nav-ul menu-mobile"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-308 nv-active"><div class="wrap"><a href="{% url "user:index" %}" aria-current="page">Home</a></div></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400"><div class="wrap"><a href="{% url 'service:all_service' %}">Service</a></div></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><div class="wrap"><a href="{% url 'portfolio:portfolio'%}">Portfolio</a></div></li>
+		{% if request.user.is_authenticated %}
+			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><div class="wrap"><a href="{% url 'ticket:ticket'%}">Ticket</a></div></li>
+		{% endif %}
 
-		<ul id="nv-primary-navigation-sidebar" class="primary-menu-ul nav-ul menu-mobile"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-308 nv-active"><div class="wrap"><a href="{% url "user:index" %}" aria-current="page">Home</a></div></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400"><div class="wrap"><a href="{% url 'service:all_service' %}">Service</a></div></li>
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><div class="wrap"><a href="{% url 'portfolio:portfolio'%}">Portfolio</a></div></li>
-{% if request.user.is_authenticated %}
-	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><div class="wrap"><a href="{% url 'ticket:ticket'%}">Ticket</a></div></li>
-{% endif %}
-
-{% if request.user.is_authenticated %}
-	<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'myaccount:myaccount'%}">My Account</a></div></li>
-{% else %}
-	<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'user:login'%}">Login</a></div></li>
-{% endif %}
-<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><div class="wrap"><a href="15c42-web-agency-gb-contact-us.html">Contact Us</a></div></li>
-</ul>	</div>
+		{% if request.user.is_authenticated %}
+			<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'myaccount:myaccount'%}">My Account</a></div></li>
+		{% else %}
+			<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'user:login'%}">Login</a></div></li>
+		{% endif %}
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><div class="wrap"><a href="15c42-web-agency-gb-contact-us.html">Contact Us</a></div></li>
+	</ul>	
 </div>
+</div>
+
 
 	</div>
 
 </div>					</div>
+
+
+
 	</div>
+
 </div>
+
+
 <div class="header-menu-sidebar-overlay hfg-ov hfg-pe" onclick="if('undefined' !== typeof toggleAriaClick ) { toggleAriaClick() }"></div>
 </div>
 	</header>
