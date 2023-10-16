@@ -22,3 +22,8 @@ class MyService(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
+    class Meta:
+        verbose_name = "My cart"
+        verbose_name_plural = "My cart"
+    

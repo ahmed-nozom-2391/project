@@ -115,11 +115,11 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 					<div class="builder-item desktop-left">
 						<div class="item--inner builder-item--logo" data-section="title_tagline" data-item-id="logo">
 							<div class="site-logo">
-								<a class="brand" href="{% url 'myaccount:myaccount'%}">
+								<a class="brand" href="{% url 'myaccount:myaccount'%}#my_services">
 									<div class="title-with-logo">
 										<div class="nv-title-tagline-wrap">
-											<i class="fa fa-shopping-cart right" style="font-size:30px;color:black"></i>
-											<span class="badge" id="my_cart1">{{cart_services}}</span>
+											<i class="fa fa-shopping-cart right" style="font-size:30px;color:#94e1f3"></i>
+											<span class="badge" id="my_cart1" style="font-size:12px; color:black"><b>{{cart_services}}</b></span>
 										</div>
 									</div>
 								</a>
@@ -192,9 +192,9 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 
 					{% if request.user.is_authenticated %}
 						<div class="builder-item tablet-left mobile-left">
-							<a href="{% url 'myaccount:myaccount'%}">
-								<i class="fa fa-shopping-cart right" style="font-size:24px;color:black"></i>
-								<span class="badge" id="my_cart2">{{cart_services}}</span>
+							<a href="{% url 'myaccount:myaccount'%}#my_services">
+								<i class="fa fa-shopping-cart right" style="font-size:24px;color:#94e1f3"></i>
+								<span class="badge" id="my_cart2" style="font-size:12px; color:black"><b>{{cart_services}}</b></span>
 							</a>
 						</div>
 					{% endif %}
@@ -254,7 +254,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 		{% else %}
 			<li id="menu-item-401" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-401"><div class="wrap"><a href="{% url 'user:login'%}">Login</a></div></li>
 		{% endif %}
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><div class="wrap"><a href="15c42-web-agency-gb-contact-us.html">Contact Us</a></div></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-323"><div class="wrap"><a href="{% url 'contactus:contactus'%}">Contact Us</a></div></li>
 	</ul>	
 </div>
 </div>
@@ -298,7 +298,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 	<div class="footer--row-inner footer-bottom-inner footer-content-wrap">
 		<div class="container">
 			<div class="hfg-grid nv-footer-content hfg-grid-bottom row--wrapper row " data-section="hfg_footer_layout_bottom">
-				<div class="hfg-slot left"><div class="builder-item"><div class="item--inner"><div class="component-wrap"><div><p><a href="https://themeisle.com/themes/neve/" rel="nofollow">Neve</a> | Powered by <a href="http://wordpress.org" rel="nofollow">WordPress</a></p></div></div></div></div></div>							</div>
+				<div class="hfg-slot left"><div class="builder-item"><div class="item--inner"><div class="component-wrap"><div><p><a href="{% url 'user:index' %}" rel="nofollow">IPAM</a> | copyright &copy; <a href="#" rel="nofollow">2023</a></p></div></div></div></div></div>							</div>
 		</div>
 	</div>
 </div>

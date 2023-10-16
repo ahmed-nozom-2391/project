@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import ContactUs
+from .models import ContactUs, ContactInfo
 
 
 
@@ -12,6 +12,20 @@ class ContactUsAdmin(admin.ModelAdmin):
 
     def has_add_permission(self, request, obj=None):
         return False
+
+
+class ContactInfoAdmin(admin.ModelAdmin):
+    model = ContactInfo
+    list_display = ['id',  'email', 'call_us']
+    list_display_links = ['id', 'email']
+    search_fields = ('id', 'email')
+
+    def has_add_permission(self, request, obj=None):
+        return False
     
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 admin.site.register(ContactUs, ContactUsAdmin)
+admin.site.register(ContactInfo, ContactInfoAdmin)
