@@ -43,11 +43,43 @@
 				<p class="has-text-align-center has-neve-text-color-color has-text-color">
 					{{ service.details}}
 				</p>
-				<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
-					<div class="wp-block-button is-style-primary">
-						<a class="wp-block-button__link">Add</a>
+
+				{% if request.user.is_authenticated %}
+					{% if  service in my_services %}
+						<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
+							<div class="wp-block-button is-style-primary">
+								<a class="wp-block-button__link">
+									Added
+								</a>
+							</div>
+						</div>
+					{% else %}
+						<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
+							<div class="wp-block-button is-style-primary">
+								<a class="wp-block-button__link"
+									onclick="add_to_cart(this)" 
+									id="{{service.id}}"
+									name="add"
+								>
+									Add
+								</a>
+							</div>
+						</div>
+					{% endif %}
+				{% else %}
+					<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
+						<div class="wp-block-button is-style-primary">
+							<a class="wp-block-button__link"
+								onclick="add_to_cart(this)" 
+								id="{{service.id}}"
+								name="add"
+							>
+								Add
+							</a>
+						</div>
 					</div>
-				</div>
+				{% endif %}
+				
 				<div style="height:40px" aria-hidden="true" class="wp-block-spacer">
 				</div>
 			</div>

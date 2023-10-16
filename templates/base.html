@@ -118,7 +118,7 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<a class="brand" href="{% url 'myaccount:myaccount'%}">
 									<div class="title-with-logo">
 										<div class="nv-title-tagline-wrap">
-											<i class="fa fa-shopping-cart right" style="font-size:24px;color:black"></i>
+											<i class="fa fa-shopping-cart right" style="font-size:30px;color:black"></i>
 											<span class="badge" id="my_cart1">{{cart_services}}</span>
 										</div>
 									</div>
@@ -372,10 +372,13 @@ var NeveProperties = {"ajaxurl":"https:\/\/ipamdevelop.com\/wp-admin\/admin-ajax
 function toggleAriaClick() { function toggleAriaExpanded(toggle = 'true') { document.querySelectorAll('button.navbar-toggle').forEach(function(el) { if ( el.classList.contains('caret-wrap') ) { return; } el.setAttribute('aria-expanded', 'true' === el.getAttribute('aria-expanded') ? 'false' : toggle); }); } toggleAriaExpanded(); if ( document.body.hasAttribute('data-ftrap-listener') ) { return; } document.body.setAttribute('data-ftrap-listener', 'true'); document.addEventListener('ftrap-end', function() { toggleAriaExpanded('false'); }); }
 var menuCarets=document.querySelectorAll(".nav-ul li > .wrap > .caret");menuCarets.forEach(function(e){e.addEventListener("keydown",e=>{13===e.keyCode&&(e.target.parentElement.classList.toggle("active"),e.target.getAttribute("aria-pressed")&&e.target.setAttribute("aria-pressed","true"===e.target.getAttribute("aria-pressed")?"false":"true"))}),e.parentElement.parentElement.addEventListener("focusout",t=>{!e.parentElement.parentElement.contains(t.relatedTarget)&&(e.parentElement.classList.remove("active"),e.setAttribute("aria-pressed","false"))})});
 </script>
-		<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'wpaas'},{'server':'75ace820-3492-d328-0aa3-494817eb558d.secureserver.net'},{'pod':'n3nlwppod03'},{'storage':'n3cephmah003pod03_data09'},{'xid':'44955865'},{'wp':'6.3'},{'php':'8.0.30'},{'loggedin':'0'},{'cdn':'1'},{'builder':'wp-block-editor'},{'theme':'neve'},{'wds':'0'},{'wp_alloptions_count':'311'},{'wp_alloptions_bytes':'66412'})</script>
-		<script>window.addEventListener('click', function (elem) { var _elem$target, _elem$target$dataset, _window, _window$_trfq; return (elem === null || elem === void 0 ? void 0 : (_elem$target = elem.target) === null || _elem$target === void 0 ? void 0 : (_elem$target$dataset = _elem$target.dataset) === null || _elem$target$dataset === void 0 ? void 0 : _elem$target$dataset.eid) && ((_window = window) === null || _window === void 0 ? void 0 : (_window$_trfq = _window._trfq) === null || _window$_trfq === void 0 ? void 0 : _window$_trfq.push(["cmdLogEvent", "click", elem.target.dataset.eid]));});</script>
-		<script src="{% static 'wrhs/5c3e20ad749ddb088afc84b1b7ff009e/tccl.min.js' %}"></script>
-		<script src="{% static 'wrhs/ce554d2333f3801abafb32da18213ff7/tti.min.js' %}" onload="window.tti.calculateTTI()"></script>
-		</body>
+<script>'undefined'=== typeof _trfq || (window._trfq = []);'undefined'=== typeof _trfd && (window._trfd=[]),_trfd.push({'tccl.baseHost':'secureserver.net'}),_trfd.push({'ap':'wpaas'},{'server':'75ace820-3492-d328-0aa3-494817eb558d.secureserver.net'},{'pod':'n3nlwppod03'},{'storage':'n3cephmah003pod03_data09'},{'xid':'44955865'},{'wp':'6.3'},{'php':'8.0.30'},{'loggedin':'0'},{'cdn':'1'},{'builder':'wp-block-editor'},{'theme':'neve'},{'wds':'0'},{'wp_alloptions_count':'311'},{'wp_alloptions_bytes':'66412'})</script>
+<script>window.addEventListener('click', function (elem) { var _elem$target, _elem$target$dataset, _window, _window$_trfq; return (elem === null || elem === void 0 ? void 0 : (_elem$target = elem.target) === null || _elem$target === void 0 ? void 0 : (_elem$target$dataset = _elem$target.dataset) === null || _elem$target$dataset === void 0 ? void 0 : _elem$target$dataset.eid) && ((_window = window) === null || _window === void 0 ? void 0 : (_window$_trfq = _window._trfq) === null || _window$_trfq === void 0 ? void 0 : _window$_trfq.push(["cmdLogEvent", "click", elem.target.dataset.eid]));});</script>
+<script src="{% static 'wrhs/5c3e20ad749ddb088afc84b1b7ff009e/tccl.min.js' %}"></script>
+<script src="{% static 'wrhs/ce554d2333f3801abafb32da18213ff7/tti.min.js' %}" onload="window.tti.calculateTTI()"></script>
+
+<script type="text/javascript" src="{% static 'cart.js' %}"></script>
+
+</body>
 
 </html>

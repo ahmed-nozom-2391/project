@@ -8,6 +8,7 @@ from random import choice
 from string import ascii_lowercase, digits
 import datetime
 from django.utils import timezone
+from django.core.files.images import get_image_dimensions
 
 
 
@@ -46,12 +47,25 @@ class OverwriteStorage(FileSystemStorage):
         return name
 
 
+def validate_dimension(image):
+    width, height = get_image_dimensions(image)
+    if width != 683 or height !=  1024:
+        raise ValidationError(
+            [f'Size should be  683*1024.']
+            )
+    
+
 
 class Service(models.Model):
     created_by   = models.ForeignKey(MyUser, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='created by')
     created_at   = models.DateTimeField(default=timezone.now, verbose_name='created at')
     service_name = models.CharField(max_length=255, blank=False, null=False, verbose_name='service name')
-    image        = models.ImageField(upload_to=image_upload, default = 'service/service.jpg', storage = OverwriteStorage() )
+    image        = models.ImageField(    
+                                         upload_to=image_upload,
+                                         validators=[validate_dimension],
+                                         default = 'service/service.jpg',
+                                         storage = OverwriteStorage() 
+                                     )
     details      = models.CharField(max_length=82, blank=False, null=False) 
     slug         = models.SlugField(max_length = 255, null = False, blank = False, unique=True)
     

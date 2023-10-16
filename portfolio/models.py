@@ -8,6 +8,7 @@ from random import choice
 from string import ascii_lowercase, digits
 import datetime
 from django.utils import timezone
+from django.core.files.images import get_image_dimensions
 
 
 
@@ -46,12 +47,24 @@ class OverwriteStorage(FileSystemStorage):
         return name
 
 
+def validate_dimension(image):
+    width, height = get_image_dimensions(image)
+    if width != 600 or height !=  600:
+        raise ValidationError(
+            [f'Size should be  600*600.']
+            )
+    
 
 class PortFolio(models.Model):
     created_by   = models.ForeignKey(MyUser, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='created by')
     created_at   = models.DateTimeField(default=timezone.now, verbose_name='created at')
     project_name = models.CharField(max_length=255, blank=False, null=False, verbose_name='project name')
-    image        = models.ImageField(upload_to=image_upload, default = 'portfolio/project.jpg', storage = OverwriteStorage() )
+    image        = models.ImageField(    
+                                         upload_to=image_upload,
+                                         validators=[validate_dimension],
+                                         default = 'portfolio/project.jpg',
+                                         storage = OverwriteStorage() 
+                                    )
     details      = models.TextField(blank=True, null=True) 
 
 

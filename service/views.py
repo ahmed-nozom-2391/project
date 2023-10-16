@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from .models import Service
+from myaccount.models import MyService
 
 
 
@@ -15,7 +16,11 @@ class Service(ListView):
         nol = self.get_triple(new_object_list)
         triple_list = list(zip(nol, range(len(nol))))
         context['new_object_list'] = triple_list
-        
+
+        if self.request.user.is_authenticated:
+            my_cart     = MyService.objects.filter(user = self.request.user)
+            my_services = [i.service for i in my_cart]
+            context['my_services'] = my_services
         return context
     
     def get_triple(self, x):
