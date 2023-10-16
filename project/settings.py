@@ -155,6 +155,8 @@ AUTH_USER_MODEL = "user.MyUser"
 
 CORS_ORIGIN_ALLOW_ALL = False
 
+TARGET_DATE = "30-11-23"
+
 JAZZMIN_SETTINGS = {
     
 }

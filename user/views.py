@@ -1,14 +1,19 @@
 from django.shortcuts import render, redirect
 from django.views.decorators.csrf import csrf_exempt, csrf_protect, requires_csrf_token
-from .utils import get_username
+from .utils import get_username, expired
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView
 from .forms import SignUpForm
+from project.settings import TARGET_DATE
 from django.urls import reverse_lazy
 
 
+
+
 def index(request):
+    if expired(TARGET_DATE):
+        return
     return render(request, "index.html")
 
 
