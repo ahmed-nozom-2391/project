@@ -7,7 +7,7 @@ from .models import Service, ServiceSegment
 
 class ServiceAdmin(admin.ModelAdmin):
     model = Service
-    list_display = ['id', 'service_name', 'rel']
+    list_display = ['id', 'service_name']
     list_display_links = ['id', 'service_name']
     readonly_fields=('slug', 'created_by', 'created_at')
     search_fields = ('id', 'created_by', 'service_name', 'slug')

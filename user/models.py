@@ -13,7 +13,17 @@ import datetime
 
 def validate_name(name):
     if not(name) or name.isspace():
-        raise ValidationError('empty name is not valid name')   
+        raise ValidationError('empty name is not valid name') 
+    for char in name:
+        if not char.isalpha() and char != ' ':
+            raise ValidationError('special characters not allowed') 
+    if name.startswith(' '):
+            raise ValidationError('name can not start with space')
+    if name.endswith(' '):
+            raise ValidationError('name can not end with space')
+    if name.count(' ') > 1 :
+         raise ValidationError('name can not contain more than one space')
+    
 
 
 
@@ -52,7 +62,7 @@ class MyUser(AbstractUser):
     phone_regex   = RegexValidator(regex="[0][1][0125][0-9][ ]?\d{3}[ ]?\d{4}", message="Phone number must be entered in the format: '01xx xxx xxxx'. Up to 11 digits allowed.")
     phone         = models.CharField(unique=True, validators=[phone_regex], max_length=11, blank=False, null=False, verbose_name='phone') # validators should be a list
     first_name    = models.CharField(validators=[validate_name], max_length=30, blank=False, null=False, verbose_name='first name')
-    last_name     = models.CharField(max_length=30, blank=True, null=True, verbose_name='last name')
+    last_name     = models.CharField(validators=[validate_name], max_length=30, blank=True, null=True, verbose_name='last name')
     
     avatar        = models.ImageField(upload_to=image_upload, default = 'user/avatar.png', storage = OverwriteStorage() )
 
