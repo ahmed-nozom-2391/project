@@ -24,9 +24,10 @@ class ContactInfo(models.Model):
     call_us      = models.CharField(max_length=50, blank=True, null=True)
     email        = models.EmailField()
     offices      = models.CharField(max_length=50, blank=True, null=True)
-    facebook_url = models.URLField(blank=True, null=True, verbose_name='twitter url')
-    twitter_url  = models.URLField(blank=True, null=True, verbose_name='facebook url')
-    whatsapp_url = models.URLField(blank=True, null=True, verbose_name='linkedin url')
+    facebook_url = models.URLField(blank=True, null=True, verbose_name='facebook url')
+    twitter_url  = models.URLField(blank=True, null=True, verbose_name='twitter url')
+    whatsapp_url = models.URLField(blank=True, null=True, verbose_name='whatsapp url')
+    linkedin_url = models.URLField(blank=True, null=True, verbose_name='linkedin url')
 
     def __str__(self):
         return str(self.id)

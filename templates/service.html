@@ -37,37 +37,33 @@
 
 		{% for service in list %}
 			
-			<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
+			<div style="display:inline-block; text-align:center;" class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
 				<figure class="wp-block-image size-large"><img decoding="async" src="{{service.image.url}}" alt="" class="wp-image-37"></figure>
 				<h3 class="has-text-align-center has-neve-text-color-color has-text-color wp-block-heading">{{service.service_name}}</h3>
 				<p class="has-text-align-center has-neve-text-color-color has-text-color">
 					{{ service.details}}
 				</p>
 
+				<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
+					<div class="wp-block-button is-style-primary">
+						<a class="wp-block-button__link"
+							href="{% url 'service:service' service.slug %}"
+						>
+							Learn more
+						</a>
+					</div>
+					
+
 				{% if request.user.is_authenticated %}
 					{% if  service in my_services %}
-						<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
-							<div class="wp-block-button is-style-primary">
-								<a class="wp-block-button__link">
-									Added
-								</a>
-							</div>
+						<div class="wp-block-button is-style-primary">
+							<a class="wp-block-button__link"
+								href="{% url 'myaccount:myaccount' %}#my_services"
+							>
+								Added
+							</a>
 						</div>
 					{% else %}
-						<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
-							<div class="wp-block-button is-style-primary">
-								<a class="wp-block-button__link"
-									onclick="add_to_cart(this)" 
-									id="{{service.id}}"
-									name="add"
-								>
-									Add
-								</a>
-							</div>
-						</div>
-					{% endif %}
-				{% else %}
-					<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
 						<div class="wp-block-button is-style-primary">
 							<a class="wp-block-button__link"
 								onclick="add_to_cart(this)" 
@@ -77,8 +73,21 @@
 								Add
 							</a>
 						</div>
+					{% endif %}
+				{% else %}
+					<div class="wp-block-button is-style-primary">
+						<a class="wp-block-button__link"
+							href="{% url 'user:login' %}"
+							id="{{service.id}}"
+							name="add"
+						>
+							Add
+						</a>
 					</div>
 				{% endif %}
+			</div>
+
+
 				
 				<div style="height:40px" aria-hidden="true" class="wp-block-spacer">
 				</div>

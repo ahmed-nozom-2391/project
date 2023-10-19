@@ -1,92 +1,61 @@
 ﻿
 {% extends "base.html" %}
 {% load static %}
-{% load custom_tags %}
 
 
 {% block content %}
-	<main id="content" class="neve-main">
 
-<div class="container single-page-container">
-	<div class="row">
-				<div class="nv-single-page-wrap col">
-			<div class="nv-content-wrap entry-content">
-<div class="wp-block-cover alignfull" style="min-height:300px"><span aria-hidden="true" class="wp-block-cover__background has-nv-site-bg-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
-<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container">
-<h1 class="has-text-align-left has-neve-text-color-color has-text-color wp-block-heading">{{object.service_name}}</h1>
-</div></div>
-</div></div>
+		 <main id="content" class="neve-main">
+            <div class="container single-page-container">
+               <div class="row">
+                  <div class="nv-single-page-wrap col">
+                     <div class="nv-page-title-wrap nv-big-title">
+                        <div class="nv-page-title ">
+                           <h1>{{object.service_name}}</h1>
+                        </div>
+                        <!--.nv-page-title-->
+                     </div>
+                     <!--.nv-page-title-wrap-->
+                     <div class="nv-content-wrap entry-content">
+                        <p>{{object.details}}</p>
+                        
 
+                        {% for  segment in object.segments.all %}
+                           <div class="wp-block-columns alignfull is-layout-flex wp-container-6 wp-block-columns-is-layout-flex">
+                           <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
+                                 <div class="wp-block-cover is-light" style="min-height:600px">
+                                    <span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim" style="background-color:#f6f6f6"></span>
+                                    <div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
+                                       <div class="wp-block-image">
+                                          <figure class="aligncenter size-large">
+                                             <img decoding="async" fetchpriority="high" width="1024" height="576" src="{{segment.image.url}}" alt="" class="wp-image-432" sizes="(max-width: 1024px) 100vw, 1024px">
+                                             {% if segment.figcaption %}
+                                                <figcaption class="wp-element-caption">{{segment.figcaption}}</figcaption>
+                                             {% endif %}
 
-
-
-
-
-<!--start -->
-
-<div class="wp-block-cover alignfull" style="min-height:600px"><span aria-hidden="true" class="wp-block-cover__background has-nv-light-bg-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
-
-
-<div class="wp-block-group is-layout-flow wp-block-group-is-layout-flow"><div class="wp-block-group__inner-container">
-<div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
-<div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-7 wp-block-columns-is-layout-flex">		
-
-	
-	<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
-		<figure class="wp-block-image size-large"><img decoding="async" src="{{object.image.url}}" alt="" class="wp-image-37"></figure>
-		<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
-			<div class="wp-block-button is-style-primary">
-				<a class="wp-block-button__link">Learn More</a>
-			</div>
-		</div>
-		<div style="height:40px" aria-hidden="true" class="wp-block-spacer">
-		</div>
-	</div>
-	
-
-	<div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:50%">
-		<p class="has-text-align-center has-neve-text-color-color has-text-color">{{object.details}}</p>
-		<div class="wp-block-buttons is-content-justification-center is-layout-flex wp-container-3 wp-block-buttons-is-layout-flex">
-		</div>
-		<div style="height:40px" aria-hidden="true" class="wp-block-spacer">
-		</div>
-	</div>
+                                          </figure>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow" style="padding-top:1em;padding-right:1em;padding-bottom:1em;padding-left:1em">
+                                 <div class="wp-block-columns is-layout-flex wp-container-4 wp-block-columns-is-layout-flex">
+                                    <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:320px">
+                                       <p class="has-small-font-size" style="line-height:1.6"><strong>{{segment.title}}</strong></p>
+                                       <p>{{segment.details}}</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        {% endfor %}
 
 
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </main>
+         <!--/.neve-main-->
 
-
-</div>
-<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
-</div></div>
-</div></div>
-
-
-
-<!--############################## -->
-
-
-<div class="wp-block-cover alignfull" style="min-height:300px"><span aria-hidden="true" class="wp-block-cover__background has-nv-dark-bg-background-color has-background-dim-100 has-background-dim"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
-<div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
-
-
-<div class="wp-block-image is-style-rounded">
-<figure class="aligncenter size-large is-resized"><img decoding="async" src="{% static 'wp-content/uploads/2020/12/neve-web-design-studio-03.1.jpg' %}" alt="" class="wp-image-215" width="80" height="80"></figure></div>
-
-
-<p class="has-text-align-center has-nv-text-dark-bg-color has-text-color">“What is the point of being alive if you don’t at least <br>try to do something remarkable?”</p>
-
-
-
-<p class="has-text-align-center has-nv-text-dark-bg-color has-text-color" style="font-size:14px">JANET MORRIS</p>
-
-
-
-<div style="height:80px" aria-hidden="true" class="wp-block-spacer"></div>
-</div></div>
-</div>		</div>
-			</div>
-</div>
-
-</main><!--/.neve-main-->
 
 {% endblock content %}

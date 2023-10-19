@@ -6,7 +6,7 @@ from rest_framework import status
 from .models import MyService
 from user.models import MyUser
 from .serializers import MyServiceSerializer
-from .views import myservice_cart_context
+from user.views import base_context
 
 
 
@@ -20,7 +20,7 @@ class CartApi(CreateAPIView):
         # filter user services
         serializer.save(user=request.user)
         headers = self.get_success_headers(serializer.data)
-        context = myservice_cart_context(request)
+        context = base_context(request)
         context.update(serializer.data)
         return Response(context, status=status.HTTP_201_CREATED, headers=headers)
     

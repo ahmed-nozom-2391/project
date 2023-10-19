@@ -34,15 +34,6 @@ class AccountMessageCreateView(LoginRequiredMixin, CreateView):
     
 
 
-def myservice_cart_context(request):
-    user = request.user
-    cart_services = 0
-    if user.is_authenticated:
-        services = MyService.objects.filter(user = user)
-        cart_services = services.count()
-
-    return {'cart_services': cart_services}
-    
 
     
 

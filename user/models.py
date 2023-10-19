@@ -75,5 +75,5 @@ class MyUser(AbstractUser):
             name += ' ' + self.last_name
         return name
         
-    
 
+        

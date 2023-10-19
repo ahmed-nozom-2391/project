@@ -10,8 +10,36 @@
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 		<title>IPAM Develop</title>
 <meta name='robots' content='max-image-preview:large'>
-<link rel="alternate" type="application/rss+xml" title="IPAM Develop &raquo; Feed" href="feed.html">
-<link rel="alternate" type="application/rss+xml" title="IPAM Develop &raquo; Comments Feed" href="comments/feed.html">
+
+<!-- favicon -->
+{% comment %} <link rel="apple-touch-icon" sizes="180x180" href="{%static 'favicon/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{%static 'favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{%static 'favicon/favicon-16x16.png' %}">
+<link rel="manifest" href="{%static 'favicon/site.webmanifest' %}">
+<link rel="mask-icon" href="{%static 'favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff"> {% endcomment %}
+
+<link rel="apple-touch-icon" sizes="57x57" href="{%static 'fav/apple-icon-57x57.png' %}">
+<link rel="apple-touch-icon" sizes="60x60" href="{%static 'fav/apple-icon-60x60.png' %}">
+<link rel="apple-touch-icon" sizes="72x72" href="{%static 'fav/apple-icon-72x72.png' %}">
+<link rel="apple-touch-icon" sizes="76x76" href="{%static 'fav/apple-icon-76x76.png' %}">
+<link rel="apple-touch-icon" sizes="114x114" href="{%static 'fav/apple-icon-114x114.png' %}">
+<link rel="apple-touch-icon" sizes="120x120" href="{%static 'fav/apple-icon-120x120.png' %}">
+<link rel="apple-touch-icon" sizes="144x144" href="{%static 'fav/apple-icon-144x144.png' %}">
+<link rel="apple-touch-icon" sizes="152x152" href="{%static 'fav/apple-icon-152x152.png' %}">
+<link rel="apple-touch-icon" sizes="180x180" href="{%static 'fav/apple-icon-180x180.png' %}">
+<link rel="icon" type="image/png" sizes="192x192"  href="{%static 'fav/android-icon-192x192.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{%static 'fav/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="96x96" href="{%static 'fav/favicon-96x96.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{%static 'fav/favicon-16x16.png' %}">
+<link rel="manifest" href="{%static 'fav/manifest.json' %}">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="{%static 'fav/ms-icon-144x144.png' %}">
+<meta name="theme-color" content="#ffffff">
+
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="{% static 'form.css' %}"> 
 <link rel="stylesheet" href="{% static 'ticket.css' %}"> 
@@ -68,13 +96,10 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <link rel="https://api.w.org/" href="{% static 'wp-json/index.html' %}"><link rel="alternate" type="application/json" href="{% static 'wp-json/wp/v2/pages/5' %}"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://ipamdevelop.com/xmlrpc.php?rsd">
 <meta name="generator" content="WordPress 6.3">
 <link rel="canonical" href="{% url "user:index" %}">
-<link rel='shortlink' href='{% url "user:index" %}'>
+<link rel='shortlink' href="{% url 'user:index' %}">
 <link rel="alternate" type="application/json+oembed" href="{% static 'wp-json/oembed/1.0/embed?url=https%3A%2F%2Fipamdevelop.com%2F' %}">
 <link rel="alternate" type="text/xml+oembed" href="{% static 'wp-json/oembed/1.0/embed-1?url=https%3A%2F%2Fipamdevelop.com%2F&#038;format=xml' %}">
-<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="{% static 'wp-content/uploads/2023/01/cropped-cropped-cropped-free_horizontal_on_white_by_logaster-32x32.png' %}" sizes="32x32">
-<link rel="icon" href="{% static 'wp-content/uploads/2023/01/cropped-cropped-cropped-free_horizontal_on_white_by_logaster-192x192.png' %}" sizes="192x192">
-<link rel="apple-touch-icon" href="{% static 'wp-content/uploads/2023/01/cropped-cropped-cropped-free_horizontal_on_white_by_logaster-180x180.png' %}">
-<meta name="msapplication-TileImage" content="https://ipamdevelop.com/wp-content/uploads/2023/01/cropped-cropped-cropped-free_horizontal_on_white_by_logaster-270x270.png">
+<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 
 	</head>
 
@@ -137,8 +162,25 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 								<div role="navigation" class="nav-menu-primary style-border-bottom m-style" aria-label="Primary Menu">
 									<ul id="nv-primary-navigation-main" class="primary-menu-ul nav-ul menu-desktop"><li id="menu-item-308" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-308 nv-active"><div class="wrap"><a href="{% url "user:index" %}" aria-current="page">Home</a></div></li>
 										<li id="menu-item-400" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400">
-											<div class="wrap"><a href="{% url 'service:all_service' %}">Service</a></div>
+											<div class="wrap">
+												<a href="{% url 'service:all_service' %}">
+													<span class="menu-item-title-wrap dd-title">Service</span>
+												</a>
+												<div role="button" aria-pressed="false" aria-label="Open Submenu" tabindex="0" class="caret-wrap caret 2" style="margin-left:5px;">
+													<span class="caret">
+														<svg fill="currentColor" aria-label="Dropdown" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+															<path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+														</svg>
+													</span>
+												</div>
+											</div>
+											<ul class="sub-menu">
+												{% for service in service_list %}
+													<li id="menu-item-416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><div class="wrap"><a href="{% url 'service:service' service.slug %}">{{service.service_name}}</a></div></li>
+												{% endfor %}
+											</ul>
 										</li>
+
 										<li id="menu-item-320" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320">
 											<div class="wrap"><a href="{% url 'portfolio:portfolio'%}">Portfolio</a></div>
 										</li>
@@ -243,7 +285,26 @@ body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: 
 <div class="nv-nav-wrap">
 <div role="navigation" class="nav-menu-primary style-border-bottom m-style" aria-label="Primary Menu">
 	<ul id="nv-primary-navigation-sidebar" class="primary-menu-ul nav-ul menu-mobile"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-5 current_page_item menu-item-308 nv-active"><div class="wrap"><a href="{% url "user:index" %}" aria-current="page">Home</a></div></li>
-		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400"><div class="wrap"><a href="{% url 'service:all_service' %}">Service</a></div></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-400">
+			<div class="wrap">
+				<a href="{% url 'service:all_service' %}">
+					<span class="menu-item-title-wrap dd-title">Service</span>
+				</a>
+				<div role="button" aria-pressed="false" aria-label="Open Submenu" tabindex="0" class="caret-wrap caret 2" style="margin-left:5px;">
+					<span class="caret">
+						<svg fill="currentColor" aria-label="Dropdown" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 448 512">
+							<path d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z"></path>
+						</svg>
+					</span>
+				</div>
+			</div>
+			<ul class="sub-menu">
+				{% for service in service_list %}
+					<li id="menu-item-416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-416"><div class="wrap"><a href="{% url 'service:service' service.slug %}">{{service.service_name}}</a></div></li>
+				{% endfor %}
+			</ul>
+
+		</li>
 		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-320"><div class="wrap"><a href="{% url 'portfolio:portfolio'%}">Portfolio</a></div></li>
 		{% if request.user.is_authenticated %}
 			<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-402"><div class="wrap"><a href="{% url 'ticket:ticket'%}">Ticket</a></div></li>

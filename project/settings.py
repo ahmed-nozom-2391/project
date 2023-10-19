@@ -80,7 +80,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'myaccount.views.myservice_cart_context',
+                'user.views.base_context',
             ],
         },
     },

@@ -56,6 +56,29 @@ def validate_dimension(image):
     
 
 
+class ServiceSegment(models.Model):
+    title       = models.CharField(max_length=60 ,blank=False, null=False)
+    image       = models.ImageField(    
+                                         upload_to=image_upload,
+                                         validators=[validate_dimension],
+                                         default = 'service/service.jpg',
+                                         storage = OverwriteStorage() 
+                                     )
+    figcaption  = models.CharField(max_length=200 ,blank=True, null=True)
+    details     = models.TextField(blank=False, null=False) 
+
+    def image_tag(self):
+        from django.utils.html import mark_safe
+        return mark_safe('<img src="{}" width="150" height="150" />'.format(self.image.url))
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
+    
+
+    
+    def __str__(self):
+        return str(self.id)
+
+
 class Service(models.Model):
     created_by   = models.ForeignKey(MyUser, on_delete=models.SET_NULL, blank=True, null=True, verbose_name='created by')
     created_at   = models.DateTimeField(default=timezone.now, verbose_name='created at')
@@ -68,6 +91,14 @@ class Service(models.Model):
                                      )
     details      = models.CharField(max_length=82, blank=False, null=False) 
     slug         = models.SlugField(max_length = 255, null = False, blank = False, unique=True)
+
+    segments     = models.ManyToManyField(ServiceSegment, blank = True)
+
+    def image_tag(self):
+        from django.utils.html import mark_safe
+        return mark_safe('<img src="{}" width="150" height="150" />'.format(self.image.url))
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
     
 
     

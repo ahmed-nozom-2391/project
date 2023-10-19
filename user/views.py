@@ -65,3 +65,23 @@ def success_send(request):
 
 
 
+
+
+
+from myaccount.models import MyService
+from service.models import Service
+
+def base_context(request):
+    user = request.user
+    cart_services = 0
+    if user.is_authenticated:
+        services = MyService.objects.filter(user = user)
+        cart_services = services.count()
+
+    service_list = Service.objects.all()
+
+    return {
+            'cart_services': cart_services,
+            'service_list' : service_list
+            }
+    
