@@ -63,9 +63,13 @@
 
 
 		<div class="input-container ic1">
-			<label>message</label>
-			<br>
-			<textarea id="message" name="message" rows="4" cols="26" style="width:100%;"></textarea>
+			<textarea id="message" 
+					name="message" 
+					rows="4" 
+					cols="26" 
+					style="width:100%;"
+					placeholder="wrie our message..."
+			></textarea>
 			
 			{% for err in form.message.errors %}
 				<p style="color:red;">{{err}}</p>
@@ -74,10 +78,14 @@
 
 		<br>
 		<br>
-		<br>
 
 		<div class="input-container ic1">
 			<button type="submit" class="submit">send</button>
+			<br>
+			<br>
+			<br>
+			<br>
+			<p style="margin: auto; width: 60%; padding: 10px;"><b>Don't mind to message us for anything!</b></p>
 		</div>
 
 	</form>

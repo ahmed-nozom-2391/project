@@ -71,18 +71,20 @@ def success_send(request):
 
 from myaccount.models import MyService
 from service.models import Service
+from contactus.models import ContactInfo
 
 def base_context(request):
+    context = dict()
     user = request.user
     cart_services = 0
     if user.is_authenticated:
         services = MyService.objects.filter(user = user)
         cart_services = services.count()
+    context['cart_services'] = cart_services
 
     service_list = Service.objects.all()
+    context['service_list'] = service_list
 
-    return {
-            'cart_services': cart_services,
-            'service_list' : service_list
-            }
+
+    return context
     
